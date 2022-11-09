@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body{
+    scroll-behavior: smooth;  
+}
+
+/*--------------------------------------------------------------
+# 檢測版面
+--------------------------------------------------------------*/
+/** {
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important;
+}*/
+
+/*--------------------------------------------------------------
+# 導覽列 標籤
+--------------------------------------------------------------*/
+.box-bottom:after {
+  content: " ";
+  position: absolute;
+  right: 20px;
+  bottom: -5px;
+  border-top: 5px solid #EF4444;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: none;
+}
+/*--------------------------------------------------------------
+# 加載頁面
+--------------------------------------------------------------*/
+.loader_bg {
+    position: fixed;
+    z-index: 999;
+/*    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);*/
+    background: white;
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+  }
+  
+.loader {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: calc(50vh - 50px);
+    left: calc(50vw - 50px);
+}
+
+/*--------------------------------------------------------------
+# banner
+# 首頁圖片
+--------------------------------------------------------------*/
+  #swiper1 {
+      width: 100%;
+      height: 300px;
+  }
+
+  .swiper-slide {
+      background-position: top center;
+      background-size: cover;
+      color: #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 40px 60px;
+      height: 300px;
+  }
+    
+  .swiper-slide a {
+      display: block;
+      width: 100%;
+      height: 100%;
+  }
+
+  .swiper-button-next:after, .swiper-button-prev:after{
+    font-size:14px !important;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    box-shadow: 0px 0p 8px rgba(0,0,0,0.4);
+  }
+  .swiper-button-next {
+    right: 10;
+  }
+  .swiper-button-prev {
+    left: 10;
+  }
+  .swiper-button-next, .swiper-button-prev {
+    z-index: 30;
+    background-size: 10px auto;
+    transition: border-color 0.3s;
+    border: 1px solid #666;
+    border-radius: 50%;
+    width: 40px !important;
+    height: 40px !important;
+    color:#666 !important;
+  }
+  .swiper-button-next:hover, .swiper-button-prev:hover{
+    background:#444 !important;
+    color:white !important;
+  }
+/*--------------------------------------------------------------
+# Video
+# 影片燈箱
+--------------------------------------------------------------*/
+  .mediabox-wrap {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      background-color: rgba(0,0,0,0.8);
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 999;
+      -webkit-animation-duration: 0.5s;
+      animation-duration: 0.5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: mediabox;
+      animation-name: mediabox;
+  }
+
+  @-webkit-keyframes mediabox {
+      0% {
+          opacity: 0;
+      }
+
+      100% {
+          opacity: 1;
+      }
+  }
+
+  @keyframes mediabox {
+      0% {
+          opacity: 0;
+      }
+
+      100% {
+          opacity: 1;
+      }
+  }
+
+  .mediabox-content {
+      max-width: 680px;
+      display: block;
+      margin: 0 auto;
+      height: 100%;
+      position: relative;
+  }
+
+  .mediabox-content iframe {
+      max-width: 100% !important;
+      width: 100% !important;
+      display: block !important;
+      height: 480px !important;
+      border: none !important;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+  }
+
+  .mediabox-hide {
+      -webkit-animation-duration: 0.5s;
+      animation-duration: 0.5s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      -webkit-animation-name: mediaboxhide;
+      animation-name: mediaboxhide;
+  }
+
+  @-webkit-keyframes mediaboxhide {
+      0% {
+          opacity: 1;
+      }
+
+      100% {
+          opacity: 0;
+      }
+  }
+
+  @keyframes mediaboxhide {
+      0% {
+          opacity: 1;
+      }
+
+      100% {
+          opacity: 0;
+      }
+  }
+
+  .mediabox-close {
+      position: absolute;
+      top: 0;
+      cursor: pointer;
+      bottom: 528px;
+      right: 0px;
+      margin: auto 0;
+      width: 24px;
+      height: 24px;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAMvSURBVHja7Js9aBRBFMd/d1lPY6FiJVjY+Fkoxl7wA1Q0prQRS6tgoZV2MWIRRVHUUq3U+JnESrS2sBXBzipREWMlATXwt8gFznC5nd15M7Nn8uC45nZnfr/dY96+N1uTxFKOOks8lgUU/H2t4tJqIQUcAiaBGeBymcECRgO4B/wBPgJ9zkdKcvkclfRL/8ZtSTXH40N+GpLGF8zth6Q9Lse7DHCsDXxVJLSDLyQhb4B+Sb/VOVJJ6ATfKqGvrIDjDvCpJLjAz8d0JwmLDTBQAD62hIakiYJzm5a021VAfwn4WBLKwLdK2JUnIJP0XX4RSoIP/Hy8W3jeepv1dL3nmjwI3DLOExrAU2DA8zwb8xKhGeCuwYQtJTSAZwbwAHdcEqFM0mPZhO/foSHppdFcrraby2IDV0FCcPi8PCClhCjwLplgCgkrDeGv5I3pcjViSogK7yogloTo8EUEhJaQBL6oAGsJ9yVtkrRD0qsU8JKolagKZ8AD4ETFymFXgPOAQpXE5mMWOAk86XZ4n6pwlSSUhvcti1dBghe8RV8gpYQRX3irxkgKCSPABV94y85QTAlm8NatsRgSTOGBUnmAS57w3KiA0Ro3gHOW8KEEAOwE3hvfXWubFauu6A6vCND07OmW9viq5vpsGT3AtRAN2XoA+BfAwQBiTweoNpMZw48BRwKuAoPN7zNVWwZjwAfpO9S7DN5cQmYAPw4cTvAsYPJ3qHcpvNmdUO9ieBMJZQT0AhMVgfeWUC8BP87cjjHfuA6sATY0c4c0EgpUUHslvTaq3l5aUL1N1oarAnxSCVWBTyYhJvyw41XJJI3GkpAH/yYyfHQJi01gdUL4qBKqCh9NQrtBx4wGvGi0XS6T9MhoTkN5AtZVDN5awlTePsGfwDfPjGwYGDKu3s4Cp4BRz/N8cskED0iaqciVt7wTvkra5roKlJEQGt5HwhdJ24vmAUUkDEV+VyCT9NBxbp/bXXnXTNBFQmz4IhI6wrs+C+zvICEVvIuEKUlbrZ4G97WRkBq+k4RJSVusd4ntlfSheVudrQh8q4SbmntH6K2kzSF3if1Xsfzq7LKAJR5/BwCdAQBJn4egPgAAAABJRU5ErkJggg==') no-repeat;
+      background-size: 24px 24px;
+      -webkit-background-size: 24px 24px;
+      -moz-background-size: 24px 24px;
+      -o-background-size: 24px 24px;
+  }
+
+  .mediabox-close:hover {
+      opacity: 0.5;
+  }
+
+  @media all and (max-width: 768px) and (min-width: 10px) {
+      .mediabox-content {
+          max-width: 90%;
+      }
+  }
+
+  @media all and (max-width: 600px) and (min-width: 10px) {
+      .mediabox-content iframe {
+          height: 320px !important;
+      }
+
+      .mediabox-close {
+          bottom: 362px;
+      }
+  }
+
+  @media all and (max-width: 480px) and (min-width: 10px) {
+      .mediabox-content iframe {
+          height: 220px !important;
+      }
+
+      .mediabox-close {
+          bottom: 262px;
+      }
+  }
